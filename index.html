@@ -1,14 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script src="https://api.tempolabs.ai/proxy-asset?url=https://storage.googleapis.com/tempo-public-assets/error-handling.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/icon.jpg"> <!-- Add this line with the path to your icon file -->
+</head>
+<body>
+    <div id="terminal">
+        <div id="output-container">
+            <pre id="ascii">
+               /'                                  /'
+             /'                                  /'
+     _____,/' O  ____     ____     ____        /'__      ____     ____ .     ,   ____
+   /'    /' /' /'    )  /'    )  /'    )--   /'    )   )'    )--/'    )|    /  /'    )--
+ /'    /' /' /(___,/' /'    /' /'    /'    /'    /'  /'       /'    /' |  /' /'    /'
+(___,/(__(__(________(___,/(__(___,/'     (___,/(__/'        (___,/(___|/(__(___,/'
+                        /'
+                /     /'
+               (___,/'
+            </pre>
+            <div id="pre-output">
+Welcome to my portfolio.<br>
+&copy; 2024 by Diego Bravo Portfolio. All rights reserved.
+            </div>
+            <div id="output"></div>
+        </div>
+        
+        <div id="input-container">
+            <input type="text" id="command" placeholder="Type 'help' for commands" autofocus>
+        </div>
+    </div>
+    
+    <script type="module" src="./proj/donk.js"></script>
+    <script type="module" src="./proj/sorcerers.js"></script>
+    <script type="module" src="./proj/overhaul.js"></script>
+    <script type="module" src="./proj/animator.js"></script>
+    <script type="module" src="./proj/ragdoll.js"></script>
+    <script type="module" src="./proj/circinus.js"></script>
+    <script type="module" src="./proj/rythm.js"></script>
+    <script type="module" src="./proj/vall.js"></script>
+    <script type="module" src="./proj/pingo.js"></script>
+
+    <script type="module" src="main.js"></script>
+    <script type="module" src="commands.js"></script>
+
+</body>
 </html>

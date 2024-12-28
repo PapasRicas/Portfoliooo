@@ -1,0 +1,248 @@
+/* Estilos generales para dispositivos móviles y escritorio */
+body {
+    font-family: Courier, monospace;
+    background-color: #000000;
+    color: #00FF00;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#terminal {
+    position: relative;
+    border: 2px solid #00FF00;
+    border-radius: 5px;
+    padding: 20px;
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgba(0, 255, 0, 0.1) 5px, transparent 1px);
+    background-size: 100% 10px;
+    animation: scanLines .5s infinite linear, scanGlowInOut 15s infinite ease-in-out, glowInOut 5s infinite ease-in-out;
+}
+
+/* Media query para dispositivos con un ancho máximo de 600px (típicamente dispositivos móviles) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 16px; /* Tamaño de fuente ajustado para dispositivos móviles */
+        height: 80vh; /* Altura del terminal en el 90% del viewport height */
+        max-height: calc(100vh - 60px); /* Altura máxima del terminal con márgenes */
+        padding: 40px 10px; /* Añadir relleno */
+    }
+
+    #terminal {
+        
+        height: 80vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #pre-output {
+        white-space: pre-wrap;
+        font-size: 15px !important;
+        display: flex; /* Para usar flexbox */
+        justify-content: center; /* Para centrar horizontalmente */
+        align-items: center; /* Para centrar verticalmente */
+    }
+
+    #output {
+        font-size: 15px !important;
+        max-width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important; /* Centra horizontalmente */
+    }
+
+    #ascii {
+        white-space: pre-wrap;
+        font-size: 4px !important;
+        display: flex; /* Para usar flexbox */
+        justify-content: center; /* Para centrar horizontalmente */
+        align-items: center; /* Para centrar verticalmente */
+    }
+
+    #command {
+        font-size: 15px !important;
+    }
+
+    iframe, video {
+        max-width: 95% !important; /* Asegura que el video no sea más ancho que su contenedor */
+        height: auto !important; /* Permite que la altura se ajuste automáticamente en función del ancho */
+        border: 2px solid #00FF00;
+        border-radius: 5px !important;
+        display: block !important;
+        margin: 10px auto !important; /* Centra horizontalmente */
+    }
+
+    img {
+        width: 100px !important;
+        border: 2px solid #00FF00;
+        border-radius: 5px;
+        margin: 10px;
+        height: auto;
+    }
+}
+
+
+@keyframes scanLines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 10px;
+    }
+}
+
+@keyframes scanGlowInOut {
+    0% {
+        opacity: 0.9; /* Initial opacity */
+    }
+    50% {
+        opacity: 1; /* Intermediate opacity */
+    }
+    100% {
+        opacity: 0.9; /* Final opacity */
+    }
+}
+
+
+@keyframes glowInOut {
+    0% {
+        border-color: #00FF00;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+    50% {
+        border-color: #33FF33;
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+    }
+    100% {
+        border-color: #00FF00;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+}
+
+#output-container {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 90%; /* Adjust this value as needed */
+}
+
+#input-container {
+    flex-shrink: 0;
+    height: 50px;
+    margin-top: auto; /* Push the input container to the bottom */
+    border: 2px solid #00FF00;
+    border-radius: 5px;
+    display: flex; /* Añadimos esto para poder usar align-items */
+    align-items: center; /* Añadimos esto para centrar los elementos verticalmente */
+    width: calc(100% - 20px); /* Ajusta el ancho al 100% con márgenes */
+    margin-left: 10px; /* Márgen izquierdo */
+    margin-right: 10px; /* Márgen derecho */
+}
+#pre-output {
+    font-size: 17px;
+    white-space: pre-wrap; /* Preserve line breaks */
+}
+
+#output {
+    font-size: 17px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+#ascii {
+    white-space: pre-wrap;
+    font-size: 10px;
+}
+
+#command {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: #00FF00;
+    font-family: Courier, monospace;
+    font-size: 16px;
+    outline: none;
+    caret-color: #00FF00; /* Customize cursor color */
+}
+
+#command::placeholder {
+    color: #00FF00;
+}
+
+.glowing-command {
+    color: #ffeb3b;
+    text-shadow: 0 0 5px #ffeb3b;
+    cursor: pointer; /* Add this line to change cursor to pointer */
+}
+
+.glowing-command:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+/* Customize scrollbar */
+#output-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+#output-container::-webkit-scrollbar-thumb {
+    background-color: #00FF00;
+    border-radius: 10px;
+}
+
+#output-container::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+a:link {
+    color: yellow;
+}
+
+a:visited {
+    color: yellow;
+}
+
+a:hover {
+    color: lightyellow;
+}
+
+a:active {
+    color: yellow;
+}
+
+iframe, video {
+    width: 450px; /* Adjust the width as needed */
+    border: 2px solid #00FF00;
+    border-radius: 5px;
+    margin: 10px; /* Add some margin between videos */
+}
+
+img {
+    width: 500px;
+    border: 2px solid #00FF00;
+    border-radius: 5px;
+    margin: 10px;
+    height: auto;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Asegura que las imágenes estén centradas verticalmente */
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: wrap; /* Asegura que las imágenes se ajusten si el espacio es insuficiente */
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: wrap; /* Add some margin between videos */
+}
